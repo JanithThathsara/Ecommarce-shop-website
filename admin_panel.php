@@ -24,8 +24,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <?php
-        include 'admin_header.php;';
-    ?>
+    <?php include 'admin_header.php'; ?>
+    <div class="" style="height: 100vh;"></div>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>    

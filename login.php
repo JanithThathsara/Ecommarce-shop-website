@@ -18,7 +18,7 @@ if (isset($_POST['submit-btn'])) {
         $_SESSION['admin_name'] = $row['name'];
         $_SESSION['admin_email'] = $row['email'];
         $_SESSION['admin_id'] = $row['id'];
-        header('location:admin_pannel.php');
+        header('location:admin_panel.php');
     } else if($row['user_type'] == 'user'){
         $_SESSION['user_name'] = $row['name'];
         $_SESSION['user_email'] = $row['email'];

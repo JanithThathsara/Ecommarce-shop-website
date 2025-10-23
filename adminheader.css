@@ -1,0 +1,256 @@
+/* 🌈 Modern Professional Admin Dashboard */
+/* Reset + Variables */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+:root {
+  --primary: #4f46e5; /* Indigo blue */
+  --primary-light: #6366f1;
+  --accent: #f97316; /* Orange accent */
+  --bg-light: #f9fafb;
+  --text-dark: #1e293b;
+  --text-light: #ffffff;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.25);
+  --glass-border: rgba(255, 255, 255, 0.18);
+}
+
+/* Global Page Style */
+body {
+  background: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%);
+  color: var(--text-dark);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* 🧭 Header Section */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--shadow);
+  z-index: 100;
+}
+
+.header .flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 6%;
+}
+
+/* Logo */
+.header .logo img {
+  height: 50px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.header .logo img:hover {
+  transform: scale(1.05);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar a {
+  font-weight: 600;
+  text-transform: capitalize;
+  color: var(--text-dark);
+  position: relative;
+  transition: color 0.3s;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+
+.navbar a:hover {
+  color: var(--accent);
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* Icons Section */
+.icons i {
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  color: var(--primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.icons i:hover {
+  color: var(--accent);
+  transform: rotate(10deg);
+}
+
+/* User Box */
+.user-box {
+  position: absolute;
+  top: 100%;
+  right: 6%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(25px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow);
+  border-radius: 15px;
+  padding: 1rem 1.5rem;
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
+.user-box.active {
+  display: block;
+}
+
+.user-box p {
+  color: var(--text-dark);
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.user-box span {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.logout-btn {
+  width: 100%;
+  background: var(--primary);
+  color: var(--text-light);
+  border: none;
+  padding: 0.7rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: var(--accent);
+  transform: scale(1.05);
+}
+
+/* 🏞️ Banner Section */
+.banner {
+  margin-top: 100px;
+  width: 100%;
+  height: 350px;
+  background: linear-gradient(
+    120deg,
+    var(--primary-light) 0%,
+    var(--primary) 50%,
+    var(--accent) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  top: -50px;
+  left: -100px;
+  filter: blur(70px);
+}
+
+.banner::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  bottom: -50px;
+  right: -100px;
+  filter: blur(70px);
+}
+
+.banner .detail h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+
+.banner .detail p {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Divider Line */
+.line {
+  width: 80%;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary), var(--accent));
+  margin: 2rem auto;
+  border-radius: 5px;
+  box-shadow: var(--shadow);
+}
+
+/* 🌈 Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Responsive */
+@media (max-width: 900px) {
+  .navbar {
+    display: none;
+  }
+
+  .icons {
+    display: flex;
+  }
+
+  .user-box {
+    right: 2rem;
+  }
+
+  .banner .detail h1 {
+    font-size: 2.2rem;
+  }
+
+  .banner .detail p {
+    font-size: 1rem;
+  }
+}
